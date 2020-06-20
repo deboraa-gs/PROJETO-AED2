@@ -1,0 +1,61 @@
+//A primeira etapa: Proposta da interface de manipulação
+//escrita/leitura dos dados em um arquivo tipado(binário)
+
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    int resp;
+    inicio:
+    system("cls");
+    cout<<"                                            "<<endl;
+    cout<<"          MENU TEMA 1 PROJETO AED           "<<endl;
+    cout<<"                                            "<<endl<<endl;
+    cout<<"Escolha uma das opcoes:"<<endl<<endl;
+    cout<<"1 - Inserir o codigo numerico das latas: "<<endl;
+    cout<<"2 - Inserir codigo alfanumerico das caixas: "<<endl;
+    cout<<"3 - Inserir numero da pilha (4, 12 ou 20)"<<endl;
+    cout<<"0 - Sair"<<endl<<endl;
+    switch(resp) 
+{
+    case 0:
+    {
+		exit(0);
+	}
+	break;
+	
+	case 1:
+{
+    cout << "Lista de produtos" << endl << endl;
+    ofstream myfile ("data.txt", ios::out | ios::app); 
+    goto inicio;
+}
+break;
+    case 2:
+    {
+		cout<<endl<<"Adicionar um produto"<<endl
+                           <<"Digite como no exemplo: Produto 5512 15"<<endl;
+		ofstream myfile ("data.txt");
+		if (myfile.is_open())
+		{
+		char pData[40];
+  
+		cin >> pData;
+  
+		myfile << pData;
+		myfile.close();
+		}
+		else cout << "Unable to open file";
+		goto inicio;
+		break;
+
+		system("PAUSE");
+		return EXIT_SUCCESS;
+	}
+}
+}
