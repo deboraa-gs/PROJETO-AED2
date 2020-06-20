@@ -1,0 +1,33 @@
+//A primeira etapa: Proposta da interface de manipulação
+//escrita/leitura dos dados em um arquivo tipado(binário)
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+struct envase{
+	int latas;
+};
+			
+int main(){
+	
+	envase *ptrLatas = new envase;
+	
+	int contLatas = 0;
+	
+	ifstream arqEntrada("minhaslatas.txt"); 
+	
+	  if(arqEntrada){
+	
+		  while(arqEntrada >> ptrLatas->latas){
+			cout<<"Codigo da lata: "<<ptrLatas->latas<<endl;
+			contLatas ++;
+		 }
+		cout<< contLatas <<endl;  
+		  
+        arqEntrada.close();
+      }
+
+    delete ptrLatas;
+	return 0;
+}
